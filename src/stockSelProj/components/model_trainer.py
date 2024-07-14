@@ -48,8 +48,8 @@ class ModelTrainer:
     
         # Hyperparameter space for RandomForest
         rf_space = {
-            'n_estimators': scope.int(hp.quniform('n_estimators', 10, 100, 10)),
-            'max_depth': scope.int(hp.quniform('max_depth', 5, 30, 2)),
+            'n_estimators': scope.int(hp.quniform('n_estimators', 10, 50, 5)),
+            'max_depth': scope.int(hp.quniform('max_depth', 5, 30, 4)),
             'min_samples_split': scope.int(hp.quniform('min_samples_split', 2, 10, 2)),
             'min_samples_leaf': scope.int(hp.quniform('min_samples_leaf', 1, 5, 1))
         }
@@ -91,8 +91,8 @@ class ModelTrainer:
     
         # Hyperparameter space for XGBoost
         xgb_space = {
-            'n_estimators': scope.int(hp.quniform('n_estimators', 10, 100, 10)),
-            'max_depth': scope.int(hp.quniform('max_depth', 5, 30, 2)),
+            'n_estimators': scope.int(hp.quniform('n_estimators', 10, 50, 5)),
+            'max_depth': scope.int(hp.quniform('max_depth', 5, 30, 4)),
             'learning_rate': hp.uniform('learning_rate', 0.01, 0.2),
             'subsample': hp.uniform('subsample', 0.6, 1.0),
             'colsample_bytree': hp.uniform('colsample_bytree', 0.6, 1.0)

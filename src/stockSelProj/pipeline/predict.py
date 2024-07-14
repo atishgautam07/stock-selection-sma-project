@@ -30,7 +30,7 @@ class PredictionPipeline:
         model_uri_xgb = f"models:/{self.model_name_xgb}/{model_version}"
         
         self.best_rf_model = mlflow.sklearn.load_model(model_uri_rf)
-        self.best_xgb_model = mlflow.sklearn.load_model(model_uri_xgb)
+        self.best_xgb_model = mlflow.xgboost.load_model(model_uri_xgb)
         
 
     def predict(self, pred_name:str):

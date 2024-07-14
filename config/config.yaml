@@ -4,21 +4,21 @@ artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingestion
   resPath: research
-  FETCH_REPO: True
+  FETCH_REPO: False
 
 
 data_transformation:
   root_dir: artifacts/data_transformation
   data_path: artifacts/data_ingestion
-  TRANSFORM_DATA: True
+  TRANSFORM_DATA: False
 
 
 model_trainer:
   root_dir: artifacts/model_trainer
-  num_trials: 3
+  num_trials: 2
   cv: 2
   data_path: artifacts/data_transformation
-  mlflow_uri: "http://34.93.200.115:5000"
+  mlflow_uri: "http://35.244.39.189:5000"
   hpo_exp_rf: "random-forest-hyperParamTune v1"
   hpo_exp_xgb: "xgBoost-hyperParamTune v1"
   
@@ -28,9 +28,8 @@ model_evaluation:
   root_dir: artifacts/model_evaluation
   data_path: artifacts/data_transformation
   top_n: 3
-  ml_uri: "http://34.93.200.115:5000"
+  ml_uri: "http://35.244.39.189:5000"
   hpo_exp_rf: "random-forest-hyperParamTune v1"
   hpo_exp_xgb: "xgBoost-hyperParamTune v1"
   exp_name: "best-models v1"
   # rf_params: ['max_depth', 'n_estimators', 'min_samples_split', 'min_samples_leaf', 'random_state']
-  

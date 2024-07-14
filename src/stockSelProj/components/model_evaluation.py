@@ -65,6 +65,7 @@ class ModelEvaluation:
         experiment = client.get_experiment_by_name(self.config.exp_name)
         best_run = client.search_runs(
             experiment_ids=experiment.experiment_id,
+            filter_string='tags.model="rf_topN_models"',
             run_view_type=ViewType.ACTIVE_ONLY,
             max_results=self.config.top_n,
             order_by=["metrics.test_score DESC"]
@@ -119,6 +120,7 @@ class ModelEvaluation:
         experiment = client.get_experiment_by_name(self.config.exp_name)
         best_run = client.search_runs(
             experiment_ids=experiment.experiment_id,
+            filter_string='tags.model="xgb_topN_models"',
             run_view_type=ViewType.ACTIVE_ONLY,
             max_results=self.config.top_n,
             order_by=["metrics.test_score DESC"]
