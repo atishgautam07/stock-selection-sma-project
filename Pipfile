@@ -48,6 +48,11 @@ pandasdmx = "*"
 openpyxl = "*"
 stockselproj = {file = ".", editable = true}
 psycopg2-binary = "*"
+google = "*"
+google-auth = "*"
+google-auth-oauthlib = "*"
+google-api-python-client = "*"
+google-cloud-storage = "*"
 
 [dev-packages]
 
