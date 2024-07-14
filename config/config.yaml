@@ -21,6 +21,7 @@ model_trainer:
   mlflow_uri: "http://35.244.39.189:5000"
   hpo_exp_rf: "random-forest-hyperParamTune v1"
   hpo_exp_xgb: "xgBoost-hyperParamTune v1"
+  trainModel: True
   
 
 
@@ -32,4 +33,5 @@ model_evaluation:
   hpo_exp_rf: "random-forest-hyperParamTune v1"
   hpo_exp_xgb: "xgBoost-hyperParamTune v1"
   exp_name: "best-models v1"
+  trainModel: True
   # rf_params: ['max_depth', 'n_estimators', 'min_samples_split', 'min_samples_leaf', 'random_state']

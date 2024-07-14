@@ -12,10 +12,12 @@ class ModelEvaluationTrainingPipeline:
     def main(self):
         config = ConfigurationManager()
         model_evaluation_config = config.get_model_evaluation_config()
-        model_evaluation_config = ModelEvaluation(config=model_evaluation_config)
-        model_evaluation_config.run_register_model_xgb()
-        model_evaluation_config.run_register_model_rf()
-        
+        model_evaluation = ModelEvaluation(config=model_evaluation_config)
+        if model_evaluation_config.trainModel:
+            model_evaluation.run_register_model_xgb()
+            model_evaluation.run_register_model_rf()
+        else:
+            pass
 
 
 

@@ -13,9 +13,12 @@ class ModelTrainerTrainingPipeline:
     def main(self):
         config = ConfigurationManager()
         model_trainer_config = config.get_model_trainer_config()
-        model_trainer_config = ModelTrainer(config=model_trainer_config)
-        model_trainer_config.train_rf()
-        model_trainer_config.train_xgb()
+        model_trainer = ModelTrainer(config=model_trainer_config)
+        if model_trainer_config.trainModel:
+            model_trainer.train_rf()
+            model_trainer.train_xgb()
+        else:
+            pass
 
 
 if __name__ == '__main__':

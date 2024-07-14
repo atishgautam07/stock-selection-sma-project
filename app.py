@@ -1,4 +1,4 @@
-# from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import os 
 from stockSelProj.pipeline.predict import PredictionPipeline
 
@@ -12,15 +12,15 @@ prediction_name = "pred_xgp_rf_best"
 
 # app = Flask(__name__) # initializing a flask app
 
-# app = Flask('duration-prediction')
+app = Flask('stock-selection')
 
-# @app.route('/train',methods=['GET'])  # route to train the pipeline
+@app.route('/train',methods=['GET'])  # route to train the pipeline
 def training():
     os.system("python main.py")
     print("\n @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ \n")
     return "Training Successful!" 
 
-# @app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET'])
 def predict_endpoint():
     # ride = request.get_json()
 
@@ -36,10 +36,10 @@ def predict_endpoint():
 
     result = result_df.to_dict()
     print (result)
-    return result #jsonify(result)
+    return jsonify(result)
 
 
 if __name__ == "__main__":
-    training()
-    predict_endpoint()
-    # app.run(debug=True, host='0.0.0.0', port=9696)
+    # training()
+    # predict_endpoint()
+    app.run(debug=True, host='0.0.0.0', port=9696)

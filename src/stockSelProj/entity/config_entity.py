@@ -25,6 +25,7 @@ class ModelTrainerConfig:
     mlflow_uri: str
     hpo_exp_rf: str
     hpo_exp_xgb: str
+    trainModel: bool
     
 
 @dataclass(frozen=True)
@@ -36,3 +37,4 @@ class ModelEvaluationConfig:
     hpo_exp_rf: str
     hpo_exp_xgb: str
     exp_name: str
+    trainModel: bool

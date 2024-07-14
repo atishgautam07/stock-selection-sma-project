@@ -57,7 +57,8 @@ class ConfigurationManager:
             data_path = config.data_path,
             mlflow_uri = config.mlflow_uri,
             hpo_exp_rf = config.hpo_exp_rf,
-            hpo_exp_xgb = config.hpo_exp_xgb
+            hpo_exp_xgb = config.hpo_exp_xgb,
+            trainModel = config.trainModel
         )
 
         return model_trainer_config
@@ -76,6 +77,7 @@ class ConfigurationManager:
             hpo_exp_rf=config.hpo_exp_rf,
             hpo_exp_xgb=config.hpo_exp_xgb,
             exp_name=config.exp_name,
+            trainModel = config.trainModel
         )
 
         return model_evaluation_config
