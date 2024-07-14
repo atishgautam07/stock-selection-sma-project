@@ -22,7 +22,7 @@ class PredictionPipeline:
         
         mlflow.set_tracking_uri(self.ml_uri)
         mlflow.set_experiment(self.exp_name)
-        mlflow.xgboost.autolog()
+        
         # client = MlflowClient(tracking_uri=self.ml_uri)
         model_version = "latest"
 
