@@ -4,6 +4,7 @@ artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingestion
   resPath: research
+  calcTickers: True
   FETCH_REPO: True
 
 
@@ -18,7 +19,7 @@ model_trainer:
   num_trials: 3
   cv: 2
   data_path: artifacts/data_transformation
-  mlflow_uri: "http://34.93.200.115:5000"
+  mlflow_uri: "http://127.0.0.1:5000"   #"http://34.93.200.115:5000"
   hpo_exp_rf: "random-forest-hyperParamTune v1"
   hpo_exp_xgb: "xgBoost-hyperParamTune v1"
   trainModel: True
@@ -29,7 +30,7 @@ model_evaluation:
   root_dir: artifacts/model_evaluation
   data_path: artifacts/data_transformation
   top_n: 2
-  ml_uri: "http://34.93.200.115:5000"
+  ml_uri: "http://127.0.0.1:5000"   #"http://34.93.200.115:5000"
   hpo_exp_rf: "random-forest-hyperParamTune v1"
   hpo_exp_xgb: "xgBoost-hyperParamTune v1"
   exp_name: "best-models v1"

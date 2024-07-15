@@ -25,7 +25,8 @@ class ConfigurationManager:
         data_ingestion_config = DataIngestionConfig(
             root_dir=config.root_dir,
             fetchRepo=config.FETCH_REPO,
-            resPath=config.resPath
+            resPath=config.resPath,
+            calcTickers=config.calcTickers
         )
 
         return data_ingestion_config    

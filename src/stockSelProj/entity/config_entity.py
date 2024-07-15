@@ -7,6 +7,7 @@ class DataIngestionConfig:
     root_dir: Path
     fetchRepo: bool
     resPath: Path
+    calcTickers: bool
 
 
 @dataclass(frozen=True)

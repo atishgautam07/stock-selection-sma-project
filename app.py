@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import os 
 from stockSelProj.pipeline.predict import PredictionPipeline
 
-ml_uri =  "http://34.93.200.115:5000"    #"http://127.0.0.1:5000"
+ml_uri =  "http://127.0.0.1:5000"   #"http://34.93.200.115:5000"    #"http://127.0.0.1:5000"
 hpo_exp_rf = "random-forest-hyperParamTune v1"
 hpo_exp_xgb = "xgBoost-hyperParamTune v1"
 model_name_xgb = "best-model-xgb"

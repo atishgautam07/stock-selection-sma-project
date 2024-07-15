@@ -174,13 +174,25 @@ class DataIngestion:
             min_date = pd.to_datetime(min_date)   
 
         print ("Fetching ticker lists to download from yFinance. ")
+        
+        if self.config.calcTickers:
+            logger.info("Removing old list of tickers.")
+            try:
+                os.remove(os.path.join(self.config.resPath, 'tickerDict.json'))
+            except OSError:
+                logger.info("Ticker list not present, proceeding wiht list generation.")
+                pass
+        else:
+            pass
 
         if os.path.exists(os.path.join(self.config.resPath, 'tickerDict.json')):
+            logger.info("Loading list of IN stocks")
             with open(os.path.join(self.config.resPath, 'tickerDict.json')) as f:
                 tickerDict = json.load(f)
             logger.info("Loaded list of IN stocks")
         else:
             tickerDict = self.tickerList()
+            logger.info("Generating list of IN stock and dumping to location.")
             with open(os.path.join(self.config.resPath, 'tickerDict.json'), 'w', encoding='utf-8') as f:
                 json.dump(tickerDict, f, ensure_ascii=False, indent=4)
             logger.info("Generated list of IN stock and dumped to location.")
