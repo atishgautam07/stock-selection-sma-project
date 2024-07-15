@@ -122,9 +122,10 @@ class DataIngestion:
             print(f"Failed to fetch data for {ticker}: {e}")
 
     def getIndiaStocks(self):
-        '''Generate list of Indian stocks for analysis'''
-
-        dftmp = pd.read_excel(os.path.join(self.config.resPath, "MCAP28032024.xlsx"))
+        '''Generate list of Indian stocks for analysis and filtering based on fndamentals'''
+        logger.info("Generate list of Indian stocks for analysis and filtering based on fndamentals")
+        
+        dftmp = pd.read_excel(os.path.join(self.config.resPath, "MCAP28032024.xlsx")) ## static file containing list of india tickers with market cap
         dftmp = dftmp[(dftmp['Market capitalization as on March 28, 2024\n(In lakhs)'] != '*Not available for trading as on March 28, 2024')]
         dftmp = dftmp[(dftmp['Market capitalization as on March 28, 2024\n(In lakhs)'] <= 5000000)&
                     (dftmp['Market capitalization as on March 28, 2024\n(In lakhs)'] >= 5000)]
@@ -137,7 +138,8 @@ class DataIngestion:
 
         # Convert the list to a DataFrame
         screener_df = pd.DataFrame(screener_data)
-
+        
+        ## criteria for filtering stock based on fundamentals
         filtered_df = screener_df[
             # ((screener_df['Promoter holding percent'] > 0.50)|(screener_df['Promoter holding percent'].isna())) &
             ((screener_df['Revenue Growth'] > 0)|(screener_df['Revenue Growth'].isna())) &
