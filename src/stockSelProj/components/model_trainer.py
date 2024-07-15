@@ -93,7 +93,7 @@ class ModelTrainer:
         xgb_space = {
             'n_estimators': scope.int(hp.quniform('n_estimators', 10, 50, 5)),
             'max_depth': scope.int(hp.quniform('max_depth', 5, 30, 4)),
-            'learning_rate': hp.uniform('learning_rate', 0.01, 0.2),
+            'learning_rate': hp.uniform('learning_rate', 0.05, 0.2),
             'subsample': hp.uniform('subsample', 0.6, 1.0),
             'colsample_bytree': hp.uniform('colsample_bytree', 0.6, 1.0)
         }

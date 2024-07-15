@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import os 
 from stockSelProj.pipeline.predict import PredictionPipeline
 
-ml_uri =  "http://35.244.39.189:5000/"   #"http://127.0.0.1:5000"
+ml_uri =  "http://34.93.200.115:5000"    #"http://127.0.0.1:5000"
 hpo_exp_rf = "random-forest-hyperParamTune v1"
 hpo_exp_xgb = "xgBoost-hyperParamTune v1"
 model_name_xgb = "best-model-xgb"
@@ -30,7 +30,7 @@ def predict_endpoint():
     prediction_name='pred_xgp_rf_best'
     trained.predict(pred_name=prediction_name)
     
-    COLUMNS = ['Adj Close','Ticker','Date',prediction_name, prediction_name+'_rank']
+    COLUMNS = ['Ticker', 'Adj Close','Date',prediction_name, prediction_name+'_rank']
     result_df = trained.df_full[(trained.df_full[f'{prediction_name}_rank']<=10) & 
                                 (trained.df_full['Date'] == trained.df_full['Date'].max())].sort_values(by=prediction_name)[COLUMNS]
 
